@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.sesi.produto.model.TipoUsuario;
 import com.sesi.produto.model.Usuario;
 import com.sesi.produto.repository.UsuarioRepository;
 
@@ -19,7 +20,8 @@ import com.sesi.produto.repository.UsuarioRepository;
 public class UsuarioController {
 
 	@Autowired
-	private UsuarioRepository usuarioRepository;
+	UsuarioRepository usuarioRepository;
+	
 	
 	@GetMapping("/listarUsuario")
 	public String listarUsuarios(Model modelo) {
@@ -46,9 +48,9 @@ public class UsuarioController {
 	}
 	
 	@GetMapping("/formularioUsuario")
-	public String mostrarFormulario(Model modelo) {
+	public String mostrarUsuario(Model modelo) {
 		modelo.addAttribute("usuario", new Usuario());
-		modelo.addAttribute("usuarios", usuarioRepository.findAll());
+		modelo.addAttribute("tipo	Usuario", TipoUsuario.values());
 		return "formularioUsuario";
 	}
 	

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sesi.produto.model.Produto;
 import com.sesi.produto.repository.ProdutoRepository;
@@ -25,7 +26,7 @@ public class ProdutoController {
 		return "listarProduto";
 	}
 	
-	@GetMapping("editProduto/{id}")
+	@GetMapping("editarProduto/{id}")
 	public String editarProduto(@PathVariable("id") int id, Model modelo) {
 		Optional<Produto> produtoOpt = produtoRepository.findById(id);
 		
@@ -44,7 +45,7 @@ public class ProdutoController {
 	}
 	
 	@GetMapping("/formularioProduto")
-	public String mostrarFormulario(Model modelo) {
+	public String formularioProduto(Model modelo) {
 		modelo.addAttribute("produtos", new Produto());
 		return "formularioProduto";
 	}

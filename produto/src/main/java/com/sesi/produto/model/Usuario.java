@@ -6,6 +6,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Usuario {
@@ -18,6 +19,7 @@ public class Usuario {
 	private String email;
 	private String telefone;
 	
+
 	@Enumerated(EnumType.STRING)
 	private TipoUsuario tipoUsuario;
 	

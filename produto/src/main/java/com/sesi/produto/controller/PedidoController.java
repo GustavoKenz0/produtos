@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sesi.produto.model.Pedido;
 import com.sesi.produto.repository.PedidoRepository;
+import com.sesi.produto.repository.ProdutoRepository;
+import com.sesi.produto.repository.UsuarioRepository;
 
 @Controller
 @RequestMapping("/pedidos")
@@ -20,27 +22,33 @@ public class PedidoController {
 	@Autowired
 	PedidoRepository pedidoRepository;
 	
+	@Autowired
+	ProdutoRepository produtoRepository;
+	
+	@Autowired
+	UsuarioRepository usuarioRepository;
+	
 	@GetMapping("/listarPedidos")
 	public String listarPedidos(Model modelo) {
 		modelo.addAttribute("pedidos", pedidoRepository.findAll());
 		return "listarPedidos";
 	}
 	
-	/*@GetMapping("/novo")
+	@GetMapping("/novo")
 	public String mostrarFormulario(Model modelo) {
-		modelo.addAttribute("tarefa", new Tarefa());
-		modelo.addAttribute("usuarios", usuarioRepository.findAll());
-		modelo.addAttribute("categorias", categoriaRepository.findAll());
+		modelo.addAttribute("pedidos", new Pedido());
+		modelo.addAttribute("usuario", usuarioRepository.findAll());
+		modelo.addAttribute("produtos", produtoRepository.findAll());
 		return "formularioPedidos";
 	}
-	*/
+	
 	@PostMapping("/salvarPedidos")
 	public String salvaPedidos(Pedido pedidos) {
 		pedidoRepository.save(pedidos);
 		return "redirect:/pedidos/listarPedidos";
 	}
 	
-	/*@GetMapping("editarPedidos/{id}")
+	/* @GetMapping("editarPedidos/{id}")
 	public String editarPedidos(@PathVariable("id") int id, Model modelo) {
 		Optional<Pedido> pedidosOpt = pedidoRepository.findById(id);
 		

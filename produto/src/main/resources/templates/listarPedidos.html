@@ -1,44 +1,42 @@
+<!-- 
 <!doctype html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Usuarios</title>
+    <title>Listar Produtos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <body>
   
   <div class="container">
-  	<h1>Lista Usuarios</h1>
+  	<h1>Listar Produtos</h1>
   	
   	<table class="table">
   <thead>
     <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Email</th>
-      <th scope="col">Telefone</th>
-      <th scope="col">Tipo de Usuario</th>
+      <th scope="col">Nome do Produto</th>
+      <th scope="col">Quantidade</th>
+      <th scope="col">Data</th>
+      <th scope="col">Valor</th>
     </tr>
   </thead>
   <tbody>
-    <tr th:each="usuario : ${usuarios}">
-      <td th:text="${usuario.id}"></td>
-      <td th:text="${usuario.nome}"class="w-75"></td>
-      <td th:text="${usuario.email}"class="w-75"></td>
-      <td th:text="${usuario.telefone}"class="w-75"></td>
-      <td th:text="${usuario.tipoUsuario}"class="w-75"></td>
+    <tr th:each="produto : ${produtos}">
+      <td th:text="${produto.produto}"></td>
+      <td th:text="${produto.quantidade}"class="w-75"></td>
+       <td th:text="${produto.data}"class="w-75"></td>
+       <td th:text="${produto.valor}"class="w-75"></td>
       
-      <!-- 
       <td>
-      <a th:href="@{/usuarios/editarUsuario/{id} (id=${usuario.id})}">
+      <a th:href="@{/editarProduto/{id} (id=${produto.id})}">
       	<button type="button" class="btn btn-primary">Editar</button>
       </a>
-      <a th:href="@{/usuarios/excluirUsuario/{id} (id=${usuario.id})}">
+      <a th:href="@{/excluirProduto/{id} (id=${produto.id})}">
       	<button type="button" class="btn btn-danger">Excluir</button>
       </a>
       </td>
-	 -->
+
 
     </tr>
     
@@ -50,3 +48,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>
+-->
